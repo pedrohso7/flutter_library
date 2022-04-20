@@ -12,8 +12,8 @@ class TechfleetTripPassengers extends StatelessWidget {
       'assets/images/joana.png',
       'assets/images/felipe.png',
       'assets/images/felipe.png',
-      'assets/images/felipe.png',
-      'assets/images/felipe.png',
+      // 'assets/images/felipe.png',
+      // 'assets/images/felipe.png',
     ],
   }) : super(key: key);
 
@@ -29,21 +29,24 @@ class TechfleetTripPassengers extends StatelessWidget {
       child: Stack(
         alignment: Alignment.centerLeft,
         children: [
-          Transform.translate(
-            offset: const Offset(-(2.65 * 14.0), 0),
-            child: Container(
-              alignment: Alignment.centerRight,
-              child: ClipOval(
-                child: Material(
-                  color: PRIMARY_COLOR,
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: AVATAR_SIZE,
-                    height: AVATAR_SIZE,
-                    child: Text(
-                      '+$surplus',
-                      style: TEXT_STYLE_BOLD_WHITE,
-                      textScaleFactor: 1.5,
+          Visibility(
+            visible: uriList.length > 4,
+            child: Transform.translate(
+              offset: const Offset(-(2.65 * 14.0), 0),
+              child: Container(
+                alignment: Alignment.centerRight,
+                child: ClipOval(
+                  child: Material(
+                    color: PRIMARY_COLOR,
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: AVATAR_SIZE,
+                      height: AVATAR_SIZE,
+                      child: Text(
+                        '+$surplus',
+                        style: TEXT_STYLE_BOLD_WHITE,
+                        textScaleFactor: 1.5,
+                      ),
                     ),
                   ),
                 ),
@@ -51,7 +54,9 @@ class TechfleetTripPassengers extends StatelessWidget {
             ),
           ),
           Transform.translate(
-            offset: const Offset(-(5 * 14.0), 0),
+            offset: (uriList.length > 4)
+                ? const Offset(-(5 * 14.0), 0)
+                : const Offset(-(2.65 * 14.0), 0),
             child: ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
               scrollDirection: Axis.horizontal,
@@ -59,7 +64,7 @@ class TechfleetTripPassengers extends StatelessWidget {
               itemCount: uriList.length > 4 ? 4 : uriList.length,
               itemBuilder: (context, index) {
                 return Transform.translate(
-                  // Avatar offset. It makes
+                  // Avatar offset.
                   offset: Offset((index * 14.0), 0),
                   child: TechFleetAvatar(
                     size: AVATAR_SIZE,
