@@ -9,14 +9,12 @@ class TechfleetTripDetails extends StatelessWidget {
     this.startingPoint = 'Casa',
     this.beginHour = '08:00',
     this.endHour = '09:00',
-    // required this.isEnabled,
   }) : super(key: key);
 
   final String destination;
   final String startingPoint;
   final String beginHour;
   final String endHour;
-  // final bool isEnabled;
 
   @override
   Widget build(BuildContext context) {

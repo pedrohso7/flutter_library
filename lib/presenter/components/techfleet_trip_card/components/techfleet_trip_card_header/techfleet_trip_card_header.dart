@@ -30,7 +30,6 @@ class TechfleetTripCardHeader extends StatelessWidget {
         top: 20,
         bottom: isEnabled ? 6.0 : 30.0,
       ),
-      // height: CARD_HEADER_HEIGHT,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,

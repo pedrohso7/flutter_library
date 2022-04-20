@@ -50,13 +50,8 @@ class TechfleetTripCard extends StatelessWidget {
                 duration: const Duration(milliseconds: 300),
                 child: Column(
                   children: [
-                    Visibility(
-                      visible: isEnabled,
-                      child: Divider(thickness: 1),
-                    ),
-                    TechfleetTripCardContent(
-                      isEnabled: isEnabled,
-                    ),
+                    Divider(thickness: 1),
+                    TechfleetTripCardContent(),
                   ],
                 ),
                 builder: (context, double value, child) {
