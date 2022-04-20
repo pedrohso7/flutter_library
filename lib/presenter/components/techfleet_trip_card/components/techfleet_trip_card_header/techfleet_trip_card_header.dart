@@ -20,7 +20,7 @@ class TechfleetTripCardHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double SWITCH_HEIGHT = 22.0;
+    const double SWITCH_HEIGHT = 18.0;
     const CARD_HEADER_HEIGHT = 70.0;
 
     return Padding(
@@ -57,22 +57,14 @@ class TechfleetTripCardHeader extends StatelessWidget {
                   Text(
                     switchLabel,
                     style: isEnabled
-                        ? TextStyle(
-                            color: PRIMARY_COLOR,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 18,
-                          )
-                        : TextStyle(
-                            color: LIGHT_GREY_COLOR,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
+                        ? HEAD_TEXT_STYLE_PRIMARY
+                        : TEXT_STYLE_LIGHT_GREY,
                   ),
                   SizedBox(width: 12),
                   FlutterSwitch(
                     height: SWITCH_HEIGHT,
                     activeColor: PRIMARY_COLOR,
-                    width: 50.0,
+                    width: 40.0,
                     value: isEnabled,
                     padding: 1.0,
                     onToggle: (val) async {

@@ -22,7 +22,8 @@ class TechfleetTripPassengers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var surplus = urlList.length - 4;
-    const double AVATAR_SIZE = 49;
+    const double AVATAR_SIZE = 44;
+    const double FACTOR = 12.0;
     return SizedBox(
       width: 220,
       height: AVATAR_SIZE,
@@ -32,7 +33,7 @@ class TechfleetTripPassengers extends StatelessWidget {
           Visibility(
             visible: urlList.length > 4,
             child: Transform.translate(
-              offset: const Offset(-(2.65 * 14.0), 0),
+              offset: const Offset(-(2.65 * FACTOR), 0),
               child: Container(
                 alignment: Alignment.centerRight,
                 child: ClipOval(
@@ -55,8 +56,8 @@ class TechfleetTripPassengers extends StatelessWidget {
           ),
           Transform.translate(
             offset: (urlList.length > 4)
-                ? const Offset(-(5 * 14.0), 0)
-                : const Offset(-(2.65 * 14.0), 0),
+                ? const Offset(-(5 * FACTOR), 0)
+                : const Offset(-(2.65 * FACTOR), 0),
             child: ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
               scrollDirection: Axis.horizontal,
@@ -65,7 +66,7 @@ class TechfleetTripPassengers extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Transform.translate(
                   // Avatar offset.
-                  offset: Offset((index * 14.0), 0),
+                  offset: Offset((index * FACTOR), 0),
                   child: TechFleetAvatar(
                     size: AVATAR_SIZE,
                     uri: urlList[index],

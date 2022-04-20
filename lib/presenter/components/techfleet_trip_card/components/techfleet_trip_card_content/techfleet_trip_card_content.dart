@@ -42,8 +42,8 @@ class TechfleetTripCardContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TechfleetTripDetails(),
-                TechfleetTripPassengers(),
+                Expanded(child: TechfleetTripDetails()),
+                Expanded(child: TechfleetTripPassengers()),
               ],
             ),
             Container(

@@ -45,6 +45,7 @@ class _HomePageState extends State<HomePage> {
                 );
               },
               isEnabled: _isEnabled,
+              size: 0.8,
             ),
             TechfleetTripCard(
               tripDate: 'Hoje',

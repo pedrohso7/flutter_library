@@ -43,7 +43,7 @@ class TechfleetTripCard extends StatelessWidget {
                   begin: isEnabled ? 0.0 : 1.0,
                   end: isEnabled ? 1.0 : 0.0,
                 ),
-                duration: const Duration(milliseconds: 600),
+                duration: const Duration(milliseconds: 400),
                 child: Column(
                   children: [
                     Divider(thickness: 1),
