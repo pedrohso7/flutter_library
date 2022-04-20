@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_library/presenter/pages/teste.dart';
 
 import '../components/techfleet_trip_card/techfleet_trip_card.dart';
 
@@ -15,17 +16,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool _isEnabled = false;
-  bool _isAnimationFinished = false;
 
   void _handleSwitchTripCard() {
     setState(() {
       _isEnabled = !_isEnabled;
-    });
-  }
-
-  void _handleAnimationTripCard() {
-    setState(() {
-      _isAnimationFinished = !_isAnimationFinished;
     });
   }
 
@@ -42,11 +36,27 @@ class _HomePageState extends State<HomePage> {
             TechfleetTripCard(
               tripDate: 'Hoje',
               onSwitch: _handleSwitchTripCard,
+              onTapContent: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Teste(title: 'teste'),
+                  ),
+                );
+              },
               isEnabled: _isEnabled,
-              size: 0.93,
-              // animationController: _handleAnimationTripCard,
-              // isAnimationFinished: _isAnimationFinished,
-              // isAnimationEnabled: true,
+            ),
+            TechfleetTripCard(
+              tripDate: 'Hoje',
+              onSwitch: () => {},
+              onTapContent: () => {},
+              isEnabled: false,
+            ),
+            TechfleetTripCard(
+              tripDate: 'Hoje',
+              onSwitch: _handleSwitchTripCard,
+              onTapContent: _handleSwitchTripCard,
+              isEnabled: false,
             ),
           ],
         ),

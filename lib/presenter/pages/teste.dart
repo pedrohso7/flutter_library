@@ -32,10 +32,9 @@ class _TesteState extends State<Teste> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TechfleetTripCard(
-              tripDate: 'Hoje',
-              onSwitch: _handleSwitchTripCard,
-              isEnabled: _isEnabled,
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text('Texto'),
             ),
           ],
         ),

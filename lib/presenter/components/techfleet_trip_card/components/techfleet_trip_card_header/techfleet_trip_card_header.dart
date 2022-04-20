@@ -5,18 +5,18 @@ import 'package:flutter_switch/flutter_switch.dart';
 class TechfleetTripCardHeader extends StatelessWidget {
   const TechfleetTripCardHeader({
     Key? key,
+    required this.onSwitch,
+    required this.isEnabled,
     this.topText = 'Hoje',
     this.bottomText = 'Qua, 24/03',
     this.switchLabel = 'Eu quero dirigir',
-    required this.onSwitch,
-    required this.isEnabled,
   }) : super(key: key);
 
+  final Function onSwitch;
+  final bool isEnabled;
   final String topText;
   final String bottomText;
   final String switchLabel;
-  final Function onSwitch;
-  final bool isEnabled;
 
   @override
   Widget build(BuildContext context) {
