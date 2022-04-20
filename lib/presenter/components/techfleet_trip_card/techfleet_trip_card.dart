@@ -22,7 +22,7 @@ class TechfleetTripCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var deviceSize = MediaQuery.of(context).size;
     const CARD_HEIGHT_WITH_CONTENT = 190.0;
-    const CARD_HEIGHT_WITHOUT_CONTENT = 105.0;
+    const CARD_HEIGHT_WITHOUT_CONTENT = 90.0;
 
     return Transform.scale(
       scale: size,
@@ -38,13 +38,31 @@ class TechfleetTripCard extends StatelessWidget {
               onSwitch: onSwitch,
               isEnabled: isEnabled,
             ),
-            Column(
-              children: [
-                Visibility(visible: isEnabled, child: Divider(thickness: 1)),
-                TechfleetTripCardContent(
-                  isEnabled: isEnabled,
+            Visibility(
+              visible: isEnabled,
+              child: TweenAnimationBuilder(
+                // onEnd: () => isAnimationFinished = isEnabled,
+                curve: Curves.fastOutSlowIn,
+                tween: Tween(
+                  begin: isEnabled ? 0.0 : 1.0,
+                  end: isEnabled ? 1.0 : 0.0,
                 ),
-              ],
+                duration: const Duration(milliseconds: 300),
+                child: Column(
+                  children: [
+                    Visibility(
+                      visible: isEnabled,
+                      child: Divider(thickness: 1),
+                    ),
+                    TechfleetTripCardContent(
+                      isEnabled: isEnabled,
+                    ),
+                  ],
+                ),
+                builder: (context, double value, child) {
+                  return Transform.scale(scale: value, child: child);
+                },
+              ),
             ),
           ],
         ),

@@ -21,22 +21,22 @@ class TechfleetTripCardContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const CARD_CONTENT_HEIGHT = 95.0;
+    bool isAnimationFinished = false;
 
-    return AnimatedContainer(
-      curve: Curves.ease,
-      duration: const Duration(milliseconds: 400),
-      padding: const EdgeInsets.only(
-        left: 24,
-        top: 17,
+    return TweenAnimationBuilder(
+      onEnd: () => isAnimationFinished = isEnabled,
+      curve: Curves.fastOutSlowIn,
+      tween: Tween(
+        begin: isEnabled ? 0.0 : 1.0,
+        end: isEnabled ? 1.0 : 0.0,
       ),
-      height: isEnabled ? CARD_CONTENT_HEIGHT : 0,
-      child: TweenAnimationBuilder(
-        curve: Curves.fastOutSlowIn,
-        tween: Tween(
-          begin: isEnabled ? 0.0 : 1.0,
-          end: isEnabled ? 1.0 : 0.0,
+      duration: const Duration(milliseconds: 300),
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: 20.0,
+          bottom: 35.0,
+          left: 26,
         ),
-        duration: const Duration(milliseconds: 100),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,10 +45,10 @@ class TechfleetTripCardContent extends StatelessWidget {
             TechfleetTripPassengers(),
           ],
         ),
-        builder: (context, double value, child) {
-          return Transform.scale(scale: value, child: child);
-        },
       ),
+      builder: (context, double value, child) {
+        return Transform.scale(scale: value, child: child);
+      },
     );
   }
 }

@@ -23,14 +23,14 @@ class TechfleetTripCardHeader extends StatelessWidget {
     const double SWITCH_HEIGHT = 22.0;
     const CARD_HEADER_HEIGHT = 70.0;
 
-    return Container(
-      padding: const EdgeInsets.only(
+    return Padding(
+      padding: EdgeInsets.only(
         right: 20,
         left: 20,
-        top: 10,
-        bottom: 6,
+        top: 20,
+        bottom: isEnabled ? 6.0 : 30.0,
       ),
-      height: CARD_HEADER_HEIGHT,
+      // height: CARD_HEADER_HEIGHT,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -58,8 +58,16 @@ class TechfleetTripCardHeader extends StatelessWidget {
                   Text(
                     switchLabel,
                     style: isEnabled
-                        ? HEAD_TEXT_STYLE_PRIMARY
-                        : TEXT_STYLE_BOLD_LIGHT_GREY,
+                        ? TextStyle(
+                            color: PRIMARY_COLOR,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18,
+                          )
+                        : TextStyle(
+                            color: LIGHT_GREY_COLOR,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
                   ),
                   SizedBox(width: 12),
                   FlutterSwitch(

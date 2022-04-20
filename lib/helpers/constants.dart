@@ -10,7 +10,7 @@ const Color WHITE_COLOR = Color(0xFFFCFCFC);
 const TextStyle HEAD_TEXT_STYLE_PRIMARY = TextStyle(
   color: PRIMARY_COLOR,
   fontWeight: FontWeight.w700,
-  fontSize: 16,
+  fontSize: 18,
 );
 
 // ============= CINZA =============

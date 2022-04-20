@@ -15,10 +15,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool _isEnabled = false;
+  bool _isAnimationFinished = false;
 
   void _handleSwitchTripCard() {
     setState(() {
       _isEnabled = !_isEnabled;
+    });
+  }
+
+  void _handleAnimationTripCard() {
+    setState(() {
+      _isAnimationFinished = !_isAnimationFinished;
     });
   }
 
@@ -36,6 +43,10 @@ class _HomePageState extends State<HomePage> {
               tripDate: 'Hoje',
               onSwitch: _handleSwitchTripCard,
               isEnabled: _isEnabled,
+              size: 0.93,
+              // animationController: _handleAnimationTripCard,
+              // isAnimationFinished: _isAnimationFinished,
+              // isAnimationEnabled: true,
             ),
           ],
         ),
