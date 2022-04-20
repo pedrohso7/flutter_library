@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 import '../components/techfleet_trip_card/techfleet_trip_card.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({
+class Teste extends StatefulWidget {
+  const Teste({
     Key? key,
     required this.title,
   }) : super(key: key);
   final String title;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Teste> createState() => _TesteState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _TesteState extends State<Teste> {
   bool _isEnabled = false;
 
   void _handleSwitchTripCard() {

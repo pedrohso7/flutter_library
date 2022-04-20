@@ -51,7 +51,10 @@ class FlutterLibraryApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        fontFamily: 'Sequel',
+        fontFamily: 'Sequel Sans',
+        primaryIconTheme: IconThemeData(
+          color: GREY_COLOR_ICON,
+        ),
         primarySwatch: generateMaterialColor(PRIMARY_COLOR),
       ),
       home: const HomePage(title: 'Flutter Library UseCar'),
