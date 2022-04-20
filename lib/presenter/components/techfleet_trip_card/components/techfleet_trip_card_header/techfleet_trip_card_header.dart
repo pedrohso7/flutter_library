@@ -25,10 +25,10 @@ class TechfleetTripCardHeader extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(
-        right: 20,
-        left: 20,
-        top: 20,
-        bottom: isEnabled ? 6.0 : 30.0,
+        right: 16,
+        left: 16,
+        top: 16,
+        bottom: isEnabled ? 6.0 : 22.0,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,7 +42,7 @@ class TechfleetTripCardHeader extends StatelessWidget {
                 topText,
                 style: HEAD_TEXT_STYLE_GREY,
               ),
-              SizedBox(height: 7),
+              SizedBox(height: 4),
               Text(
                 bottomText,
                 style: TEXT_STYLE_BLACK,

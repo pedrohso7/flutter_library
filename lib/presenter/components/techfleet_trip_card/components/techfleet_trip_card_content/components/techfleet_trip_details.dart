@@ -36,13 +36,13 @@ class TechfleetTripDetails extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(width: 5),
+        SizedBox(width: 1),
         Icon(
           MdiIcons.arrowRightThin,
           color: GREY_COLOR_ICON,
-          size: 30,
+          size: 20,
         ),
-        SizedBox(width: 5),
+        SizedBox(width: 3),
         Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,

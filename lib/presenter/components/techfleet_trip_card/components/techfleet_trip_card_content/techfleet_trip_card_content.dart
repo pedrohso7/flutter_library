@@ -31,9 +31,9 @@ class TechfleetTripCardContent extends StatelessWidget {
       },
       child: Padding(
         padding: const EdgeInsets.only(
-          top: 20.0,
-          bottom: 35.0,
-          left: 26,
+          top: 14.0,
+          bottom: 20.0,
+          left: 22,
         ),
         child: Stack(
           alignment: Alignment.center,
@@ -51,7 +51,6 @@ class TechfleetTripCardContent extends StatelessWidget {
               child: Icon(
                 MdiIcons.chevronRight,
                 color: GREY_COLOR_ICON,
-                size: 30,
               ),
             ),
           ],

@@ -22,8 +22,8 @@ class TechfleetTripPassengers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var surplus = urlList.length - 4;
-    const double AVATAR_SIZE = 44;
-    const double FACTOR = 12.0;
+    const double AVATAR_SIZE = 36;
+    const double FACTOR = 11.0;
     return SizedBox(
       width: 220,
       height: AVATAR_SIZE,
