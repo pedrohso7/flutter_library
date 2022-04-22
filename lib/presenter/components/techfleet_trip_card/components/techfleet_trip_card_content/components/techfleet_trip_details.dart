@@ -18,6 +18,7 @@ class TechfleetTripDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double textScale = MediaQuery.of(context).textScaleFactor;
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -28,11 +29,13 @@ class TechfleetTripDetails extends StatelessWidget {
             Text(
               startingPoint,
               style: TEXT_STYLE_BOLD_GREY,
+              textScaleFactor: textScale > 1.0 ? 1.0 : textScale,
             ),
             SizedBox(height: 5),
             Text(
               beginHour,
               style: TEXT_STYLE_LIGHT_GREY,
+              textScaleFactor: textScale > 1.0 ? 1.0 : textScale,
             ),
           ],
         ),
@@ -50,11 +53,13 @@ class TechfleetTripDetails extends StatelessWidget {
             Text(
               destination,
               style: TEXT_STYLE_BOLD_GREY,
+              textScaleFactor: textScale > 1.0 ? 1.0 : textScale,
             ),
             SizedBox(height: 5),
             Text(
               endHour,
               style: TEXT_STYLE_LIGHT_GREY,
+              textScaleFactor: textScale > 1.0 ? 1.0 : textScale,
             ),
           ],
         ),

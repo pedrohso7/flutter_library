@@ -22,6 +22,7 @@ class TechfleetTripCardHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     const double SWITCH_HEIGHT = 18.0;
     const CARD_HEADER_HEIGHT = 70.0;
+    double textScale = MediaQuery.of(context).textScaleFactor;
 
     return Padding(
       padding: EdgeInsets.only(
@@ -41,11 +42,13 @@ class TechfleetTripCardHeader extends StatelessWidget {
               Text(
                 topText,
                 style: HEAD_TEXT_STYLE_GREY,
+                textScaleFactor: textScale > 1.0 ? 1.0 : textScale,
               ),
               SizedBox(height: 4),
               Text(
                 bottomText,
                 style: TEXT_STYLE_BLACK,
+                textScaleFactor: textScale > 1.0 ? 1.0 : textScale,
               ),
             ],
           ),
@@ -59,6 +62,7 @@ class TechfleetTripCardHeader extends StatelessWidget {
                     style: isEnabled
                         ? HEAD_TEXT_STYLE_PRIMARY
                         : TEXT_STYLE_LIGHT_GREY,
+                    textScaleFactor: textScale > 1.0 ? 1.0 : textScale,
                   ),
                   SizedBox(width: 12),
                   FlutterSwitch(

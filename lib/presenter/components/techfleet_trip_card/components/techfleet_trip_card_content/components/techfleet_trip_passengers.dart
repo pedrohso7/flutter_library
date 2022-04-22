@@ -46,7 +46,7 @@ class TechfleetTripPassengers extends StatelessWidget {
                       child: Text(
                         '+$surplus',
                         style: TEXT_STYLE_BOLD_WHITE,
-                        textScaleFactor: 1.5,
+                        textScaleFactor: 1.3,
                       ),
                     ),
                   ),
