@@ -57,9 +57,7 @@ class TechfleetTripCardHeader extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    isPassengerCard
-                        ? 'Preciso de uma carona'
-                        : 'Eu quero dirigir',
+                    isPassengerCard ? 'Preciso de carona' : 'Eu quero dirigir',
                     style: isEnabled
                         ? HEAD_TEXT_STYLE_PRIMARY
                         : TEXT_STYLE_LIGHT_GREY,

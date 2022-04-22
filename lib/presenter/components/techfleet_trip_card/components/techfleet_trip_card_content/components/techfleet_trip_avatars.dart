@@ -15,9 +15,12 @@ class TechfleetTripAvatars extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    int surplus = (size.width < 200) ? urlList.length - 3 : urlList.length - 4;
-    int avatarLimit = (size.width < 200) ? 3 : 4;
-    double AVATAR_SIZE = (size.width < 200) ? 36 : 40;
+    const WIDTH_BREAKPOINT = 360;
+    int surplus = (size.width < WIDTH_BREAKPOINT)
+        ? urlList.length - 3
+        : urlList.length - 4;
+    int avatarLimit = (size.width < WIDTH_BREAKPOINT) ? 3 : 4;
+    double AVATAR_SIZE = (size.width < WIDTH_BREAKPOINT) ? 36 : 40;
     const double FACTOR = 11.0;
     return LayoutBuilder(builder: (context, constraints) {
       return SizedBox(

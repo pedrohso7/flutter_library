@@ -37,7 +37,7 @@ class TechfleetTripCardContent extends StatelessWidget {
           top: 16.0,
           bottom: 30.0,
           left: 24,
-          right: (size.width < 200) ? 14 : 24,
+          right: (size.width < 360) ? 14 : 24,
         ),
         child: Stack(
           alignment: Alignment.centerRight,
