@@ -23,6 +23,7 @@ class TechfleetTripCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {
         Future(() async {
@@ -30,10 +31,11 @@ class TechfleetTripCardContent extends StatelessWidget {
         });
       },
       child: Padding(
-        padding: const EdgeInsets.only(
-          top: 14.0,
-          bottom: 25.0,
-          left: 22,
+        padding: EdgeInsets.only(
+          top: 16.0,
+          bottom: 30.0,
+          left: 24,
+          right: (size.width < 500) ? 14 : 24,
         ),
         child: Stack(
           alignment: Alignment.center,
@@ -56,11 +58,14 @@ class TechfleetTripCardContent extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              alignment: Alignment.centerRight,
-              child: Icon(
-                MdiIcons.chevronRight,
-                color: GREY_COLOR_ICON,
+            Transform.translate(
+              offset: const Offset(5, 0),
+              child: Container(
+                alignment: Alignment.centerRight,
+                child: Icon(
+                  MdiIcons.chevronRight,
+                  color: GREY_COLOR_ICON,
+                ),
               ),
             ),
           ],

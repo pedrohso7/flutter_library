@@ -25,10 +25,10 @@ class TechfleetTripCardHeader extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(
-        right: 16,
-        left: 16,
-        top: 16,
-        bottom: isEnabled ? 6.0 : 22.0,
+        right: 21,
+        left: 21,
+        top: 21,
+        bottom: isEnabled ? 7.0 : 22.0,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

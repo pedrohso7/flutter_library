@@ -12,62 +12,67 @@ class TechfleetTripPassengers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var surplus = urlList.length - 4;
-    const double AVATAR_SIZE = 36;
+    var size = MediaQuery.of(context).size;
+    int surplus = (size.width < 500) ? urlList.length - 3 : urlList.length - 4;
+    int avatarLimit = (size.width < 500) ? 3 : 4;
+    double AVATAR_SIZE = (size.width < 500) ? 36 : 40;
     const double FACTOR = 11.0;
-    return SizedBox(
-      width: 220,
-      height: AVATAR_SIZE,
-      child: Stack(
-        alignment: Alignment.centerLeft,
-        children: [
-          Visibility(
-            visible: urlList.length > 4,
-            child: Transform.translate(
-              offset: const Offset(-(2.65 * FACTOR), 0),
-              child: Container(
-                alignment: Alignment.centerRight,
-                child: ClipOval(
-                  child: Material(
-                    color: PRIMARY_COLOR,
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: AVATAR_SIZE,
-                      height: AVATAR_SIZE,
-                      child: Text(
-                        '+$surplus',
-                        style: TEXT_STYLE_BOLD_WHITE,
-                        textScaleFactor: 1.3,
+    return LayoutBuilder(builder: (context, constraints) {
+      return SizedBox(
+        width: constraints.maxWidth * 0.5,
+        height: AVATAR_SIZE,
+        child: Stack(
+          alignment: Alignment.centerLeft,
+          children: [
+            Visibility(
+              visible: urlList.length > avatarLimit,
+              child: Transform.translate(
+                offset: const Offset(-(2.65 * FACTOR), 0),
+                child: Container(
+                  alignment: Alignment.centerRight,
+                  child: ClipOval(
+                    child: Material(
+                      color: PRIMARY_COLOR,
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: AVATAR_SIZE,
+                        height: AVATAR_SIZE,
+                        child: Text(
+                          '+$surplus',
+                          style: TEXT_STYLE_BOLD_WHITE,
+                          textScaleFactor: 1.3,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          Transform.translate(
-            offset: (urlList.length > 4)
-                ? const Offset(-(5 * FACTOR), 0)
-                : const Offset(-(2.65 * FACTOR), 0),
-            child: ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              reverse: true,
-              itemCount: urlList.length > 4 ? 4 : urlList.length,
-              itemBuilder: (context, index) {
-                return Transform.translate(
-                  // Avatar offset.
-                  offset: Offset((index * FACTOR), 0),
-                  child: TechFleetAvatar(
-                    size: AVATAR_SIZE,
-                    uri: urlList[index],
-                  ),
-                );
-              },
+            Transform.translate(
+              offset: (urlList.length > avatarLimit)
+                  ? const Offset(-(5 * FACTOR), 0)
+                  : const Offset(-(2.65 * FACTOR), 0),
+              child: ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                reverse: true,
+                itemCount:
+                    urlList.length > avatarLimit ? avatarLimit : urlList.length,
+                itemBuilder: (context, index) {
+                  return Transform.translate(
+                    // Avatar offset.
+                    offset: Offset((index * FACTOR), 0),
+                    child: TechFleetAvatar(
+                      size: AVATAR_SIZE,
+                      uri: urlList[index],
+                    ),
+                  );
+                },
+              ),
             ),
-          ),
-        ],
-      ),
-    );
+          ],
+        ),
+      );
+    });
   }
 }
