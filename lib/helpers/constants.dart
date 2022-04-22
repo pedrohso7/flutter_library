@@ -10,7 +10,7 @@ const Color WHITE_COLOR = Color(0xFFFCFCFC);
 const TextStyle HEAD_TEXT_STYLE_PRIMARY = TextStyle(
   color: PRIMARY_COLOR,
   fontWeight: FontWeight.w700,
-  fontSize: 14,
+  fontSize: 16,
 );
 
 // ============= CINZA =============
@@ -18,25 +18,25 @@ const TextStyle HEAD_TEXT_STYLE_PRIMARY = TextStyle(
 const TextStyle HEAD_TEXT_STYLE_GREY = TextStyle(
   color: GREY_COLOR,
   fontWeight: FontWeight.w700,
-  fontSize: 14,
+  fontSize: 16,
 );
 
 const TextStyle TEXT_STYLE_BOLD_GREY = TextStyle(
   color: GREY_COLOR,
   fontWeight: FontWeight.bold,
-  fontSize: 12,
+  fontSize: 14,
 );
 
 const TextStyle TEXT_STYLE_LIGHT_GREY = TextStyle(
   color: LIGHT_GREY_COLOR,
   fontWeight: FontWeight.w400,
-  fontSize: 14,
+  fontSize: 16,
 );
 
 const TextStyle TEXT_STYLE_BOLD_LIGHT_GREY = TextStyle(
   color: LIGHT_GREY_COLOR,
   fontWeight: FontWeight.bold,
-  fontSize: 14,
+  fontSize: 16,
 );
 
 // ============= PRETO =============
@@ -44,12 +44,12 @@ const TextStyle TEXT_STYLE_BOLD_LIGHT_GREY = TextStyle(
 const TextStyle TEXT_STYLE_BLACK = TextStyle(
   color: BLACK_COLOR,
   fontWeight: FontWeight.w400,
-  fontSize: 12,
+  fontSize: 14,
 );
 const TextStyle TEXT_STYLE_BOLD_BLACK = TextStyle(
   color: BLACK_COLOR,
   fontWeight: FontWeight.bold,
-  fontSize: 14,
+  fontSize: 16,
 );
 
 // ============= WHITE =============
@@ -57,10 +57,10 @@ const TextStyle TEXT_STYLE_BOLD_BLACK = TextStyle(
 const TextStyle TEXT_STYLE_WHITE = TextStyle(
   color: WHITE_COLOR,
   fontWeight: FontWeight.w400,
-  fontSize: 14,
+  fontSize: 16,
 );
 const TextStyle TEXT_STYLE_BOLD_WHITE = TextStyle(
   color: WHITE_COLOR,
   fontWeight: FontWeight.bold,
-  fontSize: 14,
+  fontSize: 16,
 );

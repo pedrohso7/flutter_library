@@ -32,7 +32,7 @@ class TechfleetTripCardContent extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(
           top: 14.0,
-          bottom: 20.0,
+          bottom: 25.0,
           left: 22,
         ),
         child: Stack(

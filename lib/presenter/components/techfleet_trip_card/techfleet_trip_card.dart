@@ -13,7 +13,7 @@ class TechfleetTripCard extends StatelessWidget {
     this.size = 0.93,
   }) : super(key: key);
 
-  final String tripDate;
+  final DateTime tripDate;
   final Function onSwitch;
   final Function onTapContent;
   final bool isEnabled;
@@ -21,6 +21,7 @@ class TechfleetTripCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double textScale = MediaQuery.of(context).textScaleFactor;
     return Transform.scale(
       scale: size,
       child: Card(

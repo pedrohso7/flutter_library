@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TechfleetTripCard(
-              tripDate: 'Hoje',
+              tripDate: DateTime.now(),
               onSwitch: _handleSwitchTripCard,
               onTapContent: () async {
                 await Navigator.push(
@@ -45,16 +45,16 @@ class _HomePageState extends State<HomePage> {
                 );
               },
               isEnabled: _isEnabled,
-              size: 0.8,
+              size: 1,
             ),
             TechfleetTripCard(
-              tripDate: 'Hoje',
+              tripDate: DateTime.now(),
               onSwitch: () => {},
               onTapContent: () => {},
               isEnabled: false,
             ),
             TechfleetTripCard(
-              tripDate: 'Hoje',
+              tripDate: DateTime.now(),
               onSwitch: _handleSwitchTripCard,
               onTapContent: _handleSwitchTripCard,
               isEnabled: false,
