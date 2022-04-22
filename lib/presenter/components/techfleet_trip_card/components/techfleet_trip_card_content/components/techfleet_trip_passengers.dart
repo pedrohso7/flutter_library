@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_library/helpers/constants.dart';
-
-import '../../../../../../shared/techfleet_avatar.dart';
+import 'package:flutter_library/shared/techfleet_avatar.dart';
 
 class TechfleetTripPassengers extends StatelessWidget {
   const TechfleetTripPassengers({
     Key? key,
-    this.urlList = const [
-      'assets/images/renan.png',
-      'assets/images/maria.png',
-      'assets/images/joana.png',
-      'assets/images/felipe.png',
-      'assets/images/felipe.png',
-      'assets/images/felipe.png',
-      'assets/images/felipe.png',
-    ],
+    required this.urlList,
   }) : super(key: key);
 
   final List<String> urlList;

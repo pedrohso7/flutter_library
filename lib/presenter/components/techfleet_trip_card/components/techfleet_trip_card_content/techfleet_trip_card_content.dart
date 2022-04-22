@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_library/presenter/components/techfleet_trip_card/components/techfleet_trip_card_content/components/techfleet_trip_details.dart';
-import 'package:flutter_library/presenter/components/techfleet_trip_card/components/techfleet_trip_card_content/components/techfleet_trip_passengers.dart';
+import 'package:flutter_library/helpers/constants.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../../../../helpers/constants.dart';
+import 'components/techfleet_trip_details.dart';
+import 'components/techfleet_trip_passengers.dart';
 
 class TechfleetTripCardContent extends StatelessWidget {
   const TechfleetTripCardContent({
     Key? key,
     required this.onTapContent,
-    this.destination = 'Trabalho',
-    this.startingPoint = 'Casa',
-    this.beginHour = '08:00',
-    this.endHour = '09:00',
+    required this.beginHour,
+    required this.endHour,
+    required this.urlList,
+    required this.isHomeToWork,
   }) : super(key: key);
 
   final Function onTapContent;
-  final String destination;
-  final String startingPoint;
   final String beginHour;
   final String endHour;
+  final List<String> urlList;
+  final bool isHomeToWork;
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +42,18 @@ class TechfleetTripCardContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(child: TechfleetTripDetails()),
-                Expanded(child: TechfleetTripPassengers()),
+                Expanded(
+                  child: TechfleetTripDetails(
+                    isHomeToWork: isHomeToWork,
+                    beginHour: beginHour,
+                    endHour: endHour,
+                  ),
+                ),
+                Expanded(
+                  child: TechfleetTripPassengers(
+                    urlList: urlList,
+                  ),
+                ),
               ],
             ),
             Container(

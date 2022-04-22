@@ -7,9 +7,9 @@ class TechfleetTripCardHeader extends StatelessWidget {
     Key? key,
     required this.onSwitch,
     required this.isEnabled,
-    this.topText = 'Hoje',
-    this.bottomText = 'Qua, 24/03',
-    this.switchLabel = 'Eu quero dirigir',
+    required this.switchLabel,
+    required this.topText,
+    required this.bottomText,
   }) : super(key: key);
 
   final Function onSwitch;
@@ -21,7 +21,6 @@ class TechfleetTripCardHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double SWITCH_HEIGHT = 18.0;
-    const CARD_HEADER_HEIGHT = 70.0;
     double textScale = MediaQuery.of(context).textScaleFactor;
 
     return Padding(

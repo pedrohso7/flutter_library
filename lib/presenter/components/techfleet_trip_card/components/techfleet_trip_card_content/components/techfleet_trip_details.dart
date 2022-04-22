@@ -5,14 +5,12 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 class TechfleetTripDetails extends StatelessWidget {
   const TechfleetTripDetails({
     Key? key,
-    this.destination = 'Trabalho',
-    this.startingPoint = 'Casa',
-    this.beginHour = '08:00',
-    this.endHour = '09:00',
+    required this.isHomeToWork,
+    required this.beginHour,
+    required this.endHour,
   }) : super(key: key);
 
-  final String destination;
-  final String startingPoint;
+  final bool isHomeToWork;
   final String beginHour;
   final String endHour;
 
@@ -27,7 +25,7 @@ class TechfleetTripDetails extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              startingPoint,
+              (isHomeToWork) ? 'Casa' : 'Trabalho',
               style: TEXT_STYLE_BOLD_GREY,
               textScaleFactor: textScale > 1.0 ? 1.0 : textScale,
             ),
@@ -39,19 +37,19 @@ class TechfleetTripDetails extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(width: 1),
+        SizedBox(width: 3),
         Icon(
           MdiIcons.arrowRightThin,
           color: GREY_COLOR_ICON,
           size: 20,
         ),
-        SizedBox(width: 3),
+        SizedBox(width: 4),
         Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              destination,
+              (isHomeToWork) ? 'Trabalho' : 'Casa',
               style: TEXT_STYLE_BOLD_GREY,
               textScaleFactor: textScale > 1.0 ? 1.0 : textScale,
             ),
