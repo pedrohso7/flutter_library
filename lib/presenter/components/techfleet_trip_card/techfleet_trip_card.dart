@@ -13,16 +13,16 @@ class TechfleetTripCard extends StatelessWidget {
     required this.onTapContent,
     required this.isEnabled,
     this.urlList = const [
-      'assets/images/renan.png',
-      'assets/images/maria.png',
-      'assets/images/joana.png',
-      'assets/images/felipe.png',
-      'assets/images/felipe.png',
-      'assets/images/felipe.png',
-      'assets/images/felipe.png',
+      // 'assets/images/renan.png',
+      // 'assets/images/maria.png',
+      // 'assets/images/joana.png',
+      // 'assets/images/felipe.png',
+      // 'assets/images/felipe.png',
+      // 'assets/images/felipe.png',
+      // 'assets/images/felipe.png',
     ],
     this.isHomeToWork = true,
-    this.switchLabel = 'Eu quero dirigir',
+    this.isPassengerCard = true,
     this.size = 0.93,
   }) : super(key: key);
 
@@ -33,7 +33,7 @@ class TechfleetTripCard extends StatelessWidget {
   final bool isEnabled;
   final List<String> urlList;
   final bool isHomeToWork;
-  final String switchLabel;
+  final bool isPassengerCard;
   final double size;
 
   @override
@@ -52,7 +52,7 @@ class TechfleetTripCard extends StatelessWidget {
             TechfleetTripCardHeader(
               onSwitch: onSwitch,
               isEnabled: isEnabled,
-              switchLabel: switchLabel,
+              isPassengerCard: isPassengerCard,
               topText: data['topTextHeader'],
               bottomText:
                   '${(data['beginDay']).substring(0, 3)}, ${data['date']}',
@@ -75,6 +75,7 @@ class TechfleetTripCard extends StatelessWidget {
                       urlList: urlList,
                       beginHour: data['beginHour'],
                       endHour: data['endHour'],
+                      isPassengerCard: isPassengerCard,
                     ),
                   ],
                 ),

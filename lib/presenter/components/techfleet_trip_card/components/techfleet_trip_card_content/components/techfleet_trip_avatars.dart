@@ -2,31 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_library/helpers/constants.dart';
 import 'package:flutter_library/shared/techfleet_avatar.dart';
 
-class TechfleetTripPassengers extends StatelessWidget {
-  const TechfleetTripPassengers({
+class TechfleetTripAvatars extends StatelessWidget {
+  const TechfleetTripAvatars({
     Key? key,
     required this.urlList,
+    required this.isPassengerCard,
   }) : super(key: key);
 
   final List<String> urlList;
+  final bool isPassengerCard;
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    int surplus = (size.width < 500) ? urlList.length - 3 : urlList.length - 4;
-    int avatarLimit = (size.width < 500) ? 3 : 4;
-    double AVATAR_SIZE = (size.width < 500) ? 36 : 40;
+    int surplus = (size.width < 200) ? urlList.length - 3 : urlList.length - 4;
+    int avatarLimit = (size.width < 200) ? 3 : 4;
+    double AVATAR_SIZE = (size.width < 200) ? 36 : 40;
     const double FACTOR = 11.0;
     return LayoutBuilder(builder: (context, constraints) {
       return SizedBox(
         width: constraints.maxWidth * 0.5,
         height: AVATAR_SIZE,
         child: Stack(
-          alignment: Alignment.centerLeft,
+          alignment: Alignment.centerRight,
           children: [
+            //Counter
             Visibility(
               visible: urlList.length > avatarLimit,
               child: Transform.translate(
+                // offset: const Offset(/*-(2.65 * FACTOR)*/0, 0),
                 offset: const Offset(-(2.65 * FACTOR), 0),
                 child: Container(
                   alignment: Alignment.centerRight,
@@ -48,6 +52,7 @@ class TechfleetTripPassengers extends StatelessWidget {
                 ),
               ),
             ),
+            //Avatars
             Transform.translate(
               offset: (urlList.length > avatarLimit)
                   ? const Offset(-(5 * FACTOR), 0)

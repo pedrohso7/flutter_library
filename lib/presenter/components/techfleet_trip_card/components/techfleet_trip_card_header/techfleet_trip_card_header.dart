@@ -7,7 +7,7 @@ class TechfleetTripCardHeader extends StatelessWidget {
     Key? key,
     required this.onSwitch,
     required this.isEnabled,
-    required this.switchLabel,
+    required this.isPassengerCard,
     required this.topText,
     required this.bottomText,
   }) : super(key: key);
@@ -16,7 +16,7 @@ class TechfleetTripCardHeader extends StatelessWidget {
   final bool isEnabled;
   final String topText;
   final String bottomText;
-  final String switchLabel;
+  final bool isPassengerCard;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,9 @@ class TechfleetTripCardHeader extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    switchLabel,
+                    isPassengerCard
+                        ? 'Preciso de uma carona'
+                        : 'Eu quero dirigir',
                     style: isEnabled
                         ? HEAD_TEXT_STYLE_PRIMARY
                         : TEXT_STYLE_LIGHT_GREY,

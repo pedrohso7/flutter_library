@@ -3,7 +3,7 @@ import 'package:flutter_library/helpers/constants.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'components/techfleet_trip_details.dart';
-import 'components/techfleet_trip_passengers.dart';
+import 'components/techfleet_trip_avatars.dart';
 
 class TechfleetTripCardContent extends StatelessWidget {
   const TechfleetTripCardContent({
@@ -13,6 +13,7 @@ class TechfleetTripCardContent extends StatelessWidget {
     required this.endHour,
     required this.urlList,
     required this.isHomeToWork,
+    required this.isPassengerCard,
   }) : super(key: key);
 
   final Function onTapContent;
@@ -20,6 +21,7 @@ class TechfleetTripCardContent extends StatelessWidget {
   final String endHour;
   final List<String> urlList;
   final bool isHomeToWork;
+  final bool isPassengerCard;
 
   @override
   Widget build(BuildContext context) {
@@ -35,16 +37,17 @@ class TechfleetTripCardContent extends StatelessWidget {
           top: 16.0,
           bottom: 30.0,
           left: 24,
-          right: (size.width < 500) ? 14 : 24,
+          right: (size.width < 200) ? 14 : 24,
         ),
         child: Stack(
-          alignment: Alignment.center,
+          alignment: Alignment.centerRight,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
+                  flex: urlList.isEmpty ? 2 : 1,
                   child: TechfleetTripDetails(
                     isHomeToWork: isHomeToWork,
                     beginHour: beginHour,
@@ -52,19 +55,37 @@ class TechfleetTripCardContent extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: TechfleetTripPassengers(
-                    urlList: urlList,
-                  ),
+                  child: Builder(builder: (context) {
+                    //It does not have any avatar
+                    if (urlList.isEmpty) {
+                      return Text(
+                        (isPassengerCard)
+                            ? 'Sem motoristas disponíveis'
+                            : 'Sem passageiros disponíveis',
+                        style: TEXT_STYLE_PRIMARY,
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.visible,
+                      );
+                    }
+                    //Horizontal list of avatars
+                    return TechfleetTripAvatars(
+                      urlList: urlList,
+                      isPassengerCard: isPassengerCard,
+                    );
+                  }),
                 ),
               ],
             ),
-            Transform.translate(
-              offset: const Offset(5, 0),
-              child: Container(
-                alignment: Alignment.centerRight,
-                child: Icon(
-                  MdiIcons.chevronRight,
-                  color: GREY_COLOR_ICON,
+            Visibility(
+              visible: urlList.isNotEmpty,
+              child: Transform.translate(
+                offset: const Offset(5, 0),
+                child: Container(
+                  alignment: Alignment.centerRight,
+                  child: Icon(
+                    MdiIcons.chevronRight,
+                    color: GREY_COLOR_ICON,
+                  ),
                 ),
               ),
             ),

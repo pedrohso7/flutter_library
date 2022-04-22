@@ -50,6 +50,7 @@ class _HomePageState extends State<HomePage> {
                 );
               },
               isEnabled: _isEnabled,
+              isPassengerCard: false,
             ),
           ],
         ),

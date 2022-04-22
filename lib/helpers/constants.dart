@@ -12,6 +12,11 @@ const TextStyle HEAD_TEXT_STYLE_PRIMARY = TextStyle(
   fontWeight: FontWeight.w700,
   fontSize: 16,
 );
+const TextStyle TEXT_STYLE_PRIMARY = TextStyle(
+  color: PRIMARY_COLOR,
+  fontWeight: FontWeight.w400,
+  fontSize: 14,
+);
 
 // ============= CINZA =============
 
